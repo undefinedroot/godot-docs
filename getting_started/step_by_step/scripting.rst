@@ -80,7 +80,7 @@ API Bridge.
 
 This language is the best choice for performance and does not need to be
 used throughout an entire game, as other parts can be written in GDScript or Visual
-Script. However the API is clear and easy to use as it resembles, mostly,
+Script. However, the API is clear and easy to use as it resembles, mostly,
 Godot's actual C++ API.
 
 More languages can be made available through the GDNative interface, but keep in mind
@@ -97,14 +97,14 @@ demonstrate:
 - Hooking up UI elements via signals.
 - Writing a script that can access other nodes in the scene.
 
-Before continuing, please make sure to read the :ref:`GDScript<doc_gdscript>` reference.
-It's a language designed to be simple, and the reference is short, so it will not take more
-than a few minutes to get an overview of the concepts.
+Before continuing, make sure to skim and bookmark the :ref:`GDScript<doc_gdscript>` reference.
+It's a language designed to be simple, and the reference is structured into sections to make it
+easier to get an overview of the concepts.
 
 Scene setup
 ~~~~~~~~~~~
 
-Use the "Add Child Node" dialogue accessed from the Scene tab (or by pressing ``Ctrl+A``) to create a hierarchy with the following
+Use the "Add Child Node" dialogue accessed from the Scene tab (or by pressing :kbd:`Ctrl + A`) to create a hierarchy with the following
 nodes:
 
 - Panel
@@ -170,7 +170,7 @@ as well as how it interacts with other nodes: children, parent, siblings,
 and so on. The local scope of the script is the node. In other words, the script
 inherits the functions provided by that node.
 
-.. image:: /img/brainslug.jpg
+.. image:: img/brainslug.jpg
 
 
 .. _doc_scripting_handling_a_signal:
@@ -331,7 +331,7 @@ Also, remember that nodes are referenced by name, not by type.
 
 .. note::
 
-    The right-hand panel of the connect dialogue is for binding specific
+    The 'advanced' panel of the connect dialogue is for binding specific
     values to the connected function's parameters. You can add and remove
     values of different types.
 

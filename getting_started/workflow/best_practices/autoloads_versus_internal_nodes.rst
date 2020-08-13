@@ -12,7 +12,7 @@ In this guide, you will learn when to use the Autoload feature, and techniques
 you can use to avoid it.
 
 The cutting audio issue
-=======================
+-----------------------
 
 Other engines can encourage the use of creating manager classes, singletons that
 organize a lot of functionality into a globally accessible object. Godot offers
@@ -61,7 +61,7 @@ needs within itself and all these problems go away:
 3. Each scene allocates exactly the amount of resources it needs.
 
 Managing shared functionality or data
-=====================================
+-------------------------------------
 
 Another reason to use an Autoload can be that you want to reuse the same method
 or data across many scenes.
@@ -78,7 +78,7 @@ When it comes to data, you can either:
    the ``owner`` property to access the scene's root node.
 
 When you should use an Autoload
-===============================
+-------------------------------
 
 Auto-loaded nodes can simplify your code in some cases:
 
@@ -103,7 +103,7 @@ instead to get auto-completion for a type in your entire project.
    Autoload is not exactly a Singleton. Nothing prevents you from instantiating
    copies of an auto-loaded node. It is only a tool that makes a node load
    automatically as a child of the root of your scene tree, regardless of your
-   game's node structure or which scene you run, e.g. by pressing the ``F6`` key.
+   game's node structure or which scene you run, e.g. by pressing :kbd:`F6` key.
 
    As a result, you can get the auto-loaded node, for example an autoload called
    ``Sound``, by calling ``get_node("/root/Sound")``.

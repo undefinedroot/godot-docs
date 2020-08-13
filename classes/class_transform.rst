@@ -230,7 +230,7 @@ Unlike :ref:`rotated<class_Transform_method_rotated>` and :ref:`scaled<class_Tra
 
 - :ref:`Variant<class_Variant>` **xform** **(** :ref:`Variant<class_Variant>` v **)**
 
-Transforms the given :ref:`Vector3<class_Vector3>`, :ref:`Plane<class_Plane>`, :ref:`AABB<class_AABB>`, or :ref:`PoolVector3Array<class_PoolVector3Array>` by this transform.
+Transforms the given :ref:`Vector3<class_Vector3>`, :ref:`Plane<class_Plane>`, :ref:`AABB<class_AABB>`, or :ref:`PackedVector3Array<class_PackedVector3Array>` by this transform.
 
 ----
 
@@ -238,5 +238,5 @@ Transforms the given :ref:`Vector3<class_Vector3>`, :ref:`Plane<class_Plane>`, :
 
 - :ref:`Variant<class_Variant>` **xform_inv** **(** :ref:`Variant<class_Variant>` v **)**
 
-Inverse-transforms the given :ref:`Vector3<class_Vector3>`, :ref:`Plane<class_Plane>`, :ref:`AABB<class_AABB>`, or :ref:`PoolVector3Array<class_PoolVector3Array>` by this transform.
+Inverse-transforms the given :ref:`Vector3<class_Vector3>`, :ref:`Plane<class_Plane>`, :ref:`AABB<class_AABB>`, or :ref:`PackedVector3Array<class_PackedVector3Array>` by this transform.
 

@@ -12,7 +12,7 @@ and aims to help you migrate your existing Unity experience into the world of Go
 
 .. note::
 
-   This article talks about older versions of Unity. Nestable prefabs ('Nested prefabs') were added to Unity 2018.3. Nestable prefabs are analogous to Godot's scenes, and allow a more Godot-like approach to scene organisation.
+   This article talks about older versions of Unity. Nestable prefabs ('Nested prefabs') were added to Unity 2018.3. Nestable prefabs are analogous to Godot's scenes, and allow a more Godot-like approach to scene organization.
 
 Differences
 -----------
@@ -22,13 +22,13 @@ Differences
 +===================+====================================================================================+================================================================================================================+
 | License           | Proprietary, closed, free license with revenue caps and usage restrictions         | MIT license, free and fully open source without any restriction                                                |
 +-------------------+------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| OS (editor)       | Windows, macOS, Linux (unofficial and unsupported)                                 | Windows, macOS, X11 (Linux, \*BSD)                                                                             |
+| OS (editor)       | Windows, macOS, Linux                                                              | Windows, macOS, Linux, \*BSD                                                                                   |
 +-------------------+------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
-| OS (export)       | * **Desktop:** Windows, macOS, Linux                                               | * **Desktop:** Windows, macOS, X11                                                                             |
+| OS (export)       | * **Desktop:** Windows, macOS, Linux                                               | * **Desktop:** Windows, macOS, Linux                                                                           |
 |                   | * **Mobile:** Android, iOS, Windows Phone, Tizen                                   | * **Mobile:** Android, iOS                                                                                     |
 |                   | * **Web:** WebAssembly or asm.js                                                   | * **Web:** WebAssembly                                                                                         |
 |                   | * **Consoles:** PS4, PS Vita, Xbox One, Xbox 360, Wii U, Nintendo 3DS              | * **Console:** See :ref:`doc_consoles`                                                                         |
-|                   | * **VR:** Oculus Rift, SteamVR, Google Cardboard, Playstation VR, Gear VR, HoloLens| * **VR:** Oculus Rift, SteamVR                                                                                 |
+|                   | * **VR:** Oculus Rift, SteamVR, Google Cardboard, PlayStation VR, Gear VR, HoloLens| * **VR:** Oculus Rift, SteamVR                                                                                 |
 |                   | * **TV:** Android TV, Samsung SMART TV, tvOS                                       |                                                                                                                |
 +-------------------+------------------------------------------------------------------------------------+----------------------------------------------------------------------------------------------------------------+
 | Scene system      | * Component/Scene (GameObject > Component)                                         | :ref:`Scene tree and nodes <doc_scenes_and_nodes>`, allowing scenes to be nested and/or inherit other scenes   |
@@ -73,13 +73,12 @@ The Toolbar at the top of the screen is similar in both editors, offering contro
 Projects in Godot run in a separate window, rather than inside the editor
 (but the tree and objects can still be explored in the debugger window).
 
-This approach has the disadvantage that in Godot the running game can't be explored from different angles
-(though this may be supported in the future and displaying collision gizmos in the running game is already possible),
-but in exchange has several advantages:
+This approach has several advantages:
 
 - Running the project and closing it is fast (Unity has to save, run the project, close the project, and then reload the previous state).
 - Live editing is a lot more useful because changes done to the editor take effect immediately in the game and are not lost (nor have to be synced) when the game is closed. This allows fantastic workflows, like creating levels while you play them.
 - The editor is more stable because the game runs in a separate process.
+- The running game can be explored from different angles by toggling the "Camera Override" button in the editor viewport, which will switch between using the editor view and the game camera view.
 
 Finally, Godot's top toolbar includes a menu for remote debugging.
 These options allow deployment to a device (connected phone, tablet, or browser via HTML5),
@@ -88,7 +87,7 @@ and debugging/live editing on it after the game is exported.
 The scene system
 ----------------
 
-This is the most important difference between Unity and Godot and the favourite feature of most Godot users.
+This is the most important difference between Unity and Godot and the favorite feature of most Godot users.
 
 Working on a 'level' in Unity usually means embedding all the required assets in a scene
 and linking them together with components and scripts.
@@ -117,14 +116,14 @@ Consider the player as an element we'd like to use in different parent scenes (f
 2. **A scene for the Enemy.**
 
 An enemy is also an element we'd like to use in several scenes. It's almost the same
-as the Player node. The only differences are the script (it needs 'AI' routines to generate the enemy's behaviour)
+as the Player node. The only differences are the script (it needs 'AI' routines to generate the enemy's behavior)
 and the sprite textures used by the AnimatedSprite node.
 
 3. **A Level scene.**
 
 A Level scene is composed of Bricks (for platforms), Coins (for the player to collect) and a
 number of instances of the Enemy scene. Each instance is a node in the Level scene tree. These instances are separate enemies,
-which initially have shared behaviour and appearance as defined in the Enemy scene. You can set different properties for each Enemy node (to change its color, for example).
+which initially have shared behavior and appearance as defined in the Enemy scene. You can set different properties for each Enemy node (to change its color, for example).
 
 4. **A Main scene.**
 The Main scene would be composed of one root node with 2 children: a Player instance node, and a Level instance node.
@@ -203,7 +202,7 @@ please read the :ref:`doc_gdscript` and :ref:`doc_faq` pages. GDScript is strong
 and doesn't take long to learn: Between one evening for an experienced programmer and a week for a complete beginner.
 
 Unity allows you to attach as many scripts as you want to a GameObject.
-Each script adds a behaviour to the GameObject: For example, you can attach a script so that it reacts to the player's controls,
+Each script adds a behavior to the GameObject: For example, you can attach a script so that it reacts to the player's controls,
 and another that controls its specific game logic.
 
 In Godot, you can only attach one script per node. You can use either an external GDScript file
@@ -220,7 +219,7 @@ Connections: groups and signals
 
 You can control nodes by accessing them via script and calling built-in
 or user-defined functions on them. You can also place nodes in a group
-and call functions on all nodes in this group. See more in the 
+and call functions on all nodes in this group. See more in the
 :ref:`scripting documentation <doc_scripting_continued>`.
 
 Nodes can send a signal when a specified action occurs. A signal can
@@ -247,7 +246,7 @@ Creating a script that inherits :ref:`class_Resource` will allow you to create c
 Using Godot in C++
 ------------------
 
-Godot allows you to develop your project directly in C++ by using its API, which is not possible with Unity at the moment. 
+Godot allows you to develop your project directly in C++ by using its API, which is not possible with Unity at the moment.
 As an example, you can consider Godot Engine's editor as a "game" written in C++ using the Godot API.
 
 If you are interested in using Godot in C++, you may want to start reading the :ref:`Developing in

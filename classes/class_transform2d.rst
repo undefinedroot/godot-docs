@@ -253,7 +253,7 @@ Unlike :ref:`rotated<class_Transform2D_method_rotated>` and :ref:`scaled<class_T
 
 - :ref:`Variant<class_Variant>` **xform** **(** :ref:`Variant<class_Variant>` v **)**
 
-Transforms the given :ref:`Vector2<class_Vector2>`, :ref:`Rect2<class_Rect2>`, or :ref:`PoolVector2Array<class_PoolVector2Array>` by this transform.
+Transforms the given :ref:`Vector2<class_Vector2>`, :ref:`Rect2<class_Rect2>`, or :ref:`PackedVector2Array<class_PackedVector2Array>` by this transform.
 
 ----
 
@@ -261,5 +261,5 @@ Transforms the given :ref:`Vector2<class_Vector2>`, :ref:`Rect2<class_Rect2>`, o
 
 - :ref:`Variant<class_Variant>` **xform_inv** **(** :ref:`Variant<class_Variant>` v **)**
 
-Inverse-transforms the given :ref:`Vector2<class_Vector2>`, :ref:`Rect2<class_Rect2>`, or :ref:`PoolVector2Array<class_PoolVector2Array>` by this transform.
+Inverse-transforms the given :ref:`Vector2<class_Vector2>`, :ref:`Rect2<class_Rect2>`, or :ref:`PackedVector2Array<class_PackedVector2Array>` by this transform.
 

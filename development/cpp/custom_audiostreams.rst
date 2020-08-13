@@ -43,7 +43,7 @@ internal/external buffer, or a file reference.
 Some AudioStreams need to be stateless such as objects loaded from
 ResourceLoader. ResourceLoader loads once and references the same
 object regardless how many times ``load`` is called on a specific resource.
-Therefore, playback state must be self contained in AudioStreamPlayback.
+Therefore, playback state must be self-contained in AudioStreamPlayback.
 
 .. code-block:: cpp
 
@@ -231,7 +231,7 @@ Since AudioStreamPlayback is controlled by the audio thread, i/o and dynamic mem
 Resampling
 ~~~~~~~~~~
 
-Godot’s AudioServer currently uses 44100 Hz sample rate. When other sample rates are
+Godot's AudioServer currently uses 44100 Hz sample rate. When other sample rates are
 needed such as 48000, either provide one or use AudioStreamPlaybackResampled.
 Godot provides cubic interpolation for audio resampling.
 

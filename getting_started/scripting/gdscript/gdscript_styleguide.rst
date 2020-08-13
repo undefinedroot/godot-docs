@@ -64,7 +64,7 @@ Here is a complete class example based on these guidelines:
             return
 
         var target_state = get_node(target_state_path)
-        assert target_state.is_composite == false
+        assert(target_state.is_composite == false)
 
         _state.exit()
         self._state = target_state
@@ -361,7 +361,7 @@ This helps differentiate text comments from disabled code.
 .. note::
 
    In the script editor, to toggle the selected code commented, press
-   <kbd>Ctrl</kbd> <kbd>K</kbd>. This feature adds a single # sign at the start
+   :kbd:`Ctrl + K`. This feature adds a single # sign at the start
    of the selected lines.
 
 Whitespace
@@ -426,6 +426,26 @@ Naming conventions
 These naming conventions follow the Godot Engine style. Breaking these will make
 your code clash with the built-in naming conventions, leading to inconsistent
 code.
+
+File names
+~~~~~~~~~~
+
+Use snake_case for file names. For named classes, convert the PascalCase class
+name to snake_case::
+
+    # This file should be saved as `weapon.gd`.
+    extends Node
+    class_name Weapon
+
+::
+
+    # This file should be saved as `yaml_parser.gd`.
+    extends Object
+    class_name YAMLParser
+
+This is consistent with how C++ files are named in Godot's source code. This
+also avoids case sensitivity issues that can crop up when exporting a project
+from Windows to other platforms.
 
 Classes and nodes
 ~~~~~~~~~~~~~~~~~
@@ -572,6 +592,8 @@ variables, in that order.
 
 ::
 
+   signal spawn_player(position)
+
    enum Jobs {KNIGHT, WIZARD, ROGUE, HEALER, SHAMAN}
 
    const MAX_LIVES = 3
@@ -595,6 +617,19 @@ variables, in that order.
    child nodes in the scene that your class relies on. This is what the example
    above shows.
 
+Member variables
+~~~~~~~~~~~~~~~~
+
+Don't declare member variables if they are only used locally in a method, as it
+makes the code more difficult to follow. Instead, declare them as local
+variables in the method's body.
+
+Local variables
+~~~~~~~~~~~~~~~
+
+Declare local variables as close as possible to their first use. This makes it
+easier to follow the code, without having to scroll too much to find where the
+variable was declared.
 
 Methods and static functions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -605,7 +640,7 @@ Start with the ``_init()`` callback method, that the engine will call upon
 creating the object in memory. Follow with the ``_ready()`` callback, that Godot
 calls when it adds a node to the scene tree.
 
-These function should come first because they show how the object is
+These functions should come first because they show how the object is
 initialized.
 
 Other built-in virtual callbacks, like ``_unhandled_input()`` and
@@ -635,7 +670,7 @@ in that order.
             return
 
         var target_state = get_node(target_state_path)
-        assert target_state.is_composite == false
+        assert(target_state.is_composite == false)
 
         _state.exit()
         self._state = target_state

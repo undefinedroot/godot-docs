@@ -97,7 +97,7 @@ different from the one specified in size, by calling:
 
 ::
 
-    viewport.set_size_override(true, Vector2(width, height)) # Custom size for 2D
+    viewport.set_size_override(true, Vector2(width, height)) # Custom size for 2D.
     viewport.set_size_override_stretch(true) # Enable stretch for custom size.
 
 The root :ref:`Viewport <class_Viewport>` uses this for the stretch options in the project
@@ -108,7 +108,7 @@ Worlds
 
 For 3D, a :ref:`Viewport <class_Viewport>` will contain a :ref:`World <class_World>`. This
 is basically the universe that links physics and rendering together.
-Spatial-base nodes will register using the :ref:`World <class_World>` of the closest
+Spatial-based nodes will register using the :ref:`World <class_World>` of the closest
 :ref:`Viewport <class_Viewport>`. By default, newly created :ref:`Viewports <class_Viewport>` do not contain a :ref:`World <class_World>` but
 use the same as their parent :ref:`Viewport <class_Viewport>` (the root :ref:`Viewport <class_Viewport>` always contains a
 :ref:`World <class_World>`, which is the one objects are rendered to by default). A :ref:`World <class_World>` can
@@ -140,8 +140,8 @@ following code:
 
    # Retrieve the captured Image using get_data().
    var img = get_viewport().get_texture().get_data()
-   # Flip on the y axis.
-   # You can also set "V Flip" to true if not on the Root Viewport.
+   # Flip on the Y axis.
+   # You can also set "V Flip" to true if not on the root Viewport.
    img.flip_y()
    # Convert Image to ImageTexture.
    var tex = ImageTexture.new()
@@ -155,7 +155,7 @@ it using (for example):
 
 ::
 
-   # Wait until the frame has finished before getting the texture
+   # Wait until the frame has finished before getting the texture.
    yield(VisualServer, "frame_post_draw")
    # You can get the image after this.
 
@@ -237,7 +237,7 @@ and then selecting the :ref:`Viewport <class_Viewport>` you want to use.
 .. image:: img/texturepath.png
 
 Every frame, the :ref:`Viewport <class_Viewport>`'s texture is cleared away with the default clear color (or a transparent
-color if :ref:`Transparent BG<class_Viewport_property_transparent_bg>` is set to ``true``). This can be changed by setting :ref:`Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.
+color if :ref:`Transparent Bg<class_Viewport_property_transparent_bg>` is set to ``true``). This can be changed by setting :ref:`Clear Mode<class_Viewport_property_render_target_clear_mode>` to Never or Next Frame.
 As the name implies, Never means the texture will never be cleared, while next frame will
 clear the texture on the next frame and then set itself to Never.
 

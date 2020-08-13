@@ -6,7 +6,7 @@ BBCode in RichTextLabel
 Introduction
 ------------
 
-Label nodes are great for displaying basic text but they have limits. If you want
+Label nodes are great for displaying basic text, but they have limits. If you want
 to change the color of the text, or its alignment, that change affects all of the
 text in the Label node. You can't have only one part of the text be one color, or
 only one part of the text be centered. To get around this limitation you would use
@@ -81,6 +81,10 @@ Reference
 | **font**          | ``[font=<path>]{text}[/font]``             | Use custom font at <path> for {text}.                        |
 +-------------------+--------------------------------------------+--------------------------------------------------------------+
 | **color**         | ``[color=<code/name>]{text}[/color]``      | Change {text} color; use name or # format, such as #ff00ff.  |
++-------------------+--------------------------------------------+--------------------------------------------------------------+
+| **table**         | ``[table=<number>]{cells}[/table]``        | Creates a table with <number> of columns.                    |
++-------------------+--------------------------------------------+--------------------------------------------------------------+
+| **cell**          | ``[cell]{text}[/cell]``                    | Adds cells with the {text} to the table.                     |
 +-------------------+--------------------------------------------+--------------------------------------------------------------+
 
 Built-in color names
@@ -287,12 +291,12 @@ Matrix
         var clear_time = char_fx.env.get("clean", 2.0)
         var dirty_time = char_fx.env.get("dirty", 1.0)
         var text_span = char_fx.env.get("span", 50)
-		
+
         var value = char_fx.character
-		
+
         var matrix_time = fmod(char_fx.elapsed_time + (char_fx.absolute_index / float(text_span)), \
                                clear_time + dirty_time)
-		
+
         matrix_time = 0.0 if matrix_time < clear_time else \
                       (matrix_time - clear_time) / dirty_time
 

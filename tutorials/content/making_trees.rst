@@ -67,12 +67,12 @@ Here, the texture is read, as well as a transmission color, which is used to add
 This is the code to create the sway of the leaves. It's basic (just uses a sinewave multiplying by the time and axis position, but works well). Notice that the strength is multiplied by the color. Every axis uses a different small near 1.0 multiplication factor so axes don't appear in sync.
 
 
-Finally all that is left is the fragment shader:
+Finally, all that's left is the fragment shader:
 
 .. code-block:: glsl
 
     void fragment() {
-        vec4 albedo_tex = texture(texture_albedo,UV);
+        vec4 albedo_tex = texture(texture_albedo, UV);
         ALBEDO = albedo_tex.rgb;
         ALPHA = albedo_tex.a;
         METALLIC = 0.0;

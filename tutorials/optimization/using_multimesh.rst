@@ -30,12 +30,12 @@ for different areas of the world.
 It is also possible to execute some logic inside the vertex shader (using the ``INSTANCE_ID`` or
 ``INSTANCE_CUSTOM`` built-in constants). For an example of animating thousands of objects in a MultiMesh,
 see the :ref:`Animating thousands of fish <doc_animating_thousands_of_fish>` tutorial. Information
-to the shader can be provided via textures (there are floating point :ref:`Image<class_Image>` formats
+to the shader can be provided via textures (there are floating-point :ref:`Image<class_Image>` formats
 which are ideal for this).
 
 Another alternative is to use GDNative and C++, which should be extremely efficient (it's possible
 to set the entire state for all objects using linear memory via the
-:ref:`VisualServer.multimesh_set_as_bulk_array() <class_VisualServer_method_multimesh_set_as_bulk_array>`
+:ref:`VisualServer.multimesh_set_buffer() <class_VisualServer_method_multimesh_set_buffer>`
 function). This way, the array can be created with multiple threads, then set in one call, providing
 high cache efficiency.
 
@@ -55,6 +55,7 @@ efficient for millions of objects, but for a few thousands, GDScript should be f
 
     extends MultiMeshInstance
 
+
     func _ready():
         # Create the multimesh.
         multimesh = MultiMesh.new()
@@ -66,6 +67,7 @@ efficient for millions of objects, but for a few thousands, GDScript should be f
         multimesh.instance_count = 10000
         # Maybe not all of them should be visible at first.
         multimesh.visible_instance_count = 1000
+
         # Set the transform of the instances.
         for i in multimesh.visible_instance_count:
             multimesh.set_instance_transform(i, Transform(Basis(), Vector3(i * 20, 0, 0)))
@@ -74,24 +76,25 @@ efficient for millions of objects, but for a few thousands, GDScript should be f
     using Godot;
     using System;
 
-    public class MultiMeshInstance : Godot.MultiMeshInstance
+    public class YourClassName : MultiMeshInstance
     {
         public override void _Ready()
         {
             // Create the multimesh.
-            var multimesh = new MultiMesh();
+            Multimesh = new MultiMesh();
             // Set the format first.
-            multimesh.TransformFormat = MultiMesh.TransformFormatEnum.Transform3d;
-            multimesh.ColorFormat = MultiMesh.ColorFormatEnum.None;
-            multimesh.CustomDataFormat = MultiMesh.CustomDataFormatEnum.None;
+            Multimesh.TransformFormat = MultiMesh.TransformFormatEnum.Transform3d;
+            Multimesh.ColorFormat = MultiMesh.ColorFormatEnum.None;
+            Multimesh.CustomDataFormat = MultiMesh.CustomDataFormatEnum.None;
             // Then resize (otherwise, changing the format is not allowed)
-            multimesh.InstanceCount = 1000;
+            Multimesh.InstanceCount = 1000;
             // Maybe not all of them should be visible at first.
-            multimesh.VisibleInstanceCount = 1000;
+            Multimesh.VisibleInstanceCount = 1000;
+
             // Set the transform of the instances.
-            for (int i = 0; i < multimesh.VisibleInstanceCount; i++)
+            for (int i = 0; i < Multimesh.VisibleInstanceCount; i++)
             {
-                multimesh.SetInstanceTransform(i, new Transform(new Basis(), new Vector3(i * 20, 0, 0)));
+                Multimesh.SetInstanceTransform(i, new Transform(Basis.Identity, new Vector3(i * 20, 0, 0)));
             }
         }
     }

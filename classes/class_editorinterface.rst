@@ -34,6 +34,8 @@ Methods
 +-----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Control<class_Control>`                             | :ref:`get_editor_viewport<class_EditorInterface_method_get_editor_viewport>` **(** **)**                                                                       |
 +-----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`FileSystemDock<class_FileSystemDock>`               | :ref:`get_file_system_dock<class_EditorInterface_method_get_file_system_dock>` **(** **)**                                                                     |
++-----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`EditorInspector<class_EditorInspector>`             | :ref:`get_inspector<class_EditorInterface_method_get_inspector>` **(** **)** const                                                                             |
 +-----------------------------------------------------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Array<class_Array>`                                 | :ref:`get_open_scenes<class_EditorInterface_method_get_open_scenes>` **(** **)** const                                                                         |
@@ -120,6 +122,12 @@ Returns the editor :ref:`Viewport<class_Viewport>`.
 
 ----
 
+.. _class_EditorInterface_method_get_file_system_dock:
+
+- :ref:`FileSystemDock<class_FileSystemDock>` **get_file_system_dock** **(** **)**
+
+----
+
 .. _class_EditorInterface_method_get_inspector:
 
 - :ref:`EditorInspector<class_EditorInspector>` **get_inspector** **(** **)** const
@@ -192,7 +200,7 @@ Returns the enabled status of a plugin. The plugin name is the same as its direc
 
 - :ref:`Array<class_Array>` **make_mesh_previews** **(** :ref:`Array<class_Array>` meshes, :ref:`int<class_int>` preview_size **)**
 
-Returns mesh previews rendered at the given size as an :ref:`Array<class_Array>` of :ref:`Texture<class_Texture>`\ s.
+Returns mesh previews rendered at the given size as an :ref:`Array<class_Array>` of :ref:`Texture2D<class_Texture2D>`\ s.
 
 ----
 

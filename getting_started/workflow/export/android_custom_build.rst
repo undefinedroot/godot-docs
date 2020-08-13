@@ -47,9 +47,8 @@ Install a JDK
 
 The Android SDK doesn't come with Java, so it needs to be installed manually.
 You need to install a Java SDK (**not** just the runtime or JRE).
-`OpenJDK 8 <https://adoptopenjdk.net/index.html>`__ is recommended.
-Oracle JDK 8 should also work. Later versions may not work for
-Android development.
+`OpenJDK 8 <https://adoptopenjdk.net/index.html>`__ is required, newer
+versions won't work.
 
 Download the command-line tools
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -65,8 +64,6 @@ To save disk space, you don't want the full IDE, so don't download it.
 Look on that page for the *Command line tools only* section. Currently, they are listed under
 *Download Options*. Scroll down a bit until you see them.
 
-.. image:: img/custom_build_command_line.png
-
 Download the ZIP file for your platform, there will be a single ``tools``
 folder inside:
 
@@ -78,20 +75,28 @@ carefully:
 Create a new folder anywhere you want named ``android-sdk`` (it **must** be
 an empty directory). On Windows, the following path is usually good enough:
 
-::
+.. code-block:: none
 
   C:\users\<yourusername>\Documents\android-sdk
+  
+.. note::
 
-Unzip the Android SDK ZIP file you just downloaded there. The only thing in the
-directory you created in the previous step should be the ``tools`` folder with
-its contents inside, like this:
+    If you already have an android-sdk folder, normally located in ``%LOCALAPPDATA%\Android\Sdk``, 
+    then use this folder instead of creating an empty ``android-sdk`` folder. 
 
-::
+Unzip the Android SDK ZIP file into the ``android-sdk`` folder. This folder should 
+now contain the unzipped folder called ``tools``. Rename ``tools`` to ``latest``. 
+Finally, create an empty folder named ``cmdline-tools`` and place ``latest`` into it. 
+Your final directory structure should look like this :
+
+.. code-block:: none
 
   android-sdk/
-  android-sdk/tools/
-  android-sdk/tools/allthefiles
-
+  android-sdk/cmdline-tools/
+  android-sdk/cmdline-tools/latest
+  android-sdk/cmdline-tools/latest/allTheOtherFiles
+  
+We need to setup the directory structure this way for the sdkmanager (inside the bin folder) to work.
 
 Accepting the licenses
 ^^^^^^^^^^^^^^^^^^^^^^
@@ -114,13 +119,14 @@ In there, run ``sdkmanager --licenses``:
 
 .. image:: img/custom_build_sdkmanager.png
 
-This will ask you to accept several licenses, just write ``y`` and press Enter
+This will ask you to accept several licenses, just write ``y`` and press :kbd:`Enter`
 on every of them until it's done.
 
 Afterwards, install the platform tools (this is required to install ``adb``):
 
 .. image:: img/custom_build_platform_tools.png
 
+If you get an error saying ``Warning: Could not create settings``, try ``./sdkmanager --sdk_root=../../ --licenses`` or ``./sdkmanager --sdk_root=../../ platform-tools``. These must be executed inside the ``/tools/bin/`` folder because the path for ``--sdk_root`` is relative.
 
 Generating the keystore
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -128,7 +134,7 @@ Generating the keystore
 Once the *platform tools* are installed, the last step is to generate a debug
 keystore (this is needed to build). Go up two folders by writing:
 
-::
+.. code-block:: shell
 
     cd ..\..
 
@@ -137,7 +143,7 @@ keystore (this is needed to build). Go up two folders by writing:
 And you need to input the following line (on Linux and macOS, this should work
 out of the box, for Windows there are further instructions below):
 
-::
+.. code-block:: shell
 
     keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999
 
@@ -192,7 +198,7 @@ where the *android-sdk* directory is created.
 In any case, it's better to select a different path inside your user folders.
 The recommended one is usually:
 
-::
+.. code-block:: none
 
   C:\Users\<yourusername>\Documents\android-sdk
 
@@ -218,7 +224,7 @@ The actual command line to type is the following. On Linux and macOS, it should
 work out of the box, but on Windows, it needs additional details (keep reading
 afterwards).
 
-::
+.. code-block:: shell
 
     keytool -keyalg RSA -genkeypair -alias androiddebugkey -keypass android -keystore debug.keystore -storepass android -dname "CN=Android Debug,O=Android,C=US" -validity 9999
 

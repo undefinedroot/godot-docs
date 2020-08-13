@@ -27,39 +27,51 @@ Generic array which can contain several elements of any type, accessible by a nu
     array[2] = "Three"
     print(array[-2]) # Three.
 
+Arrays can be concatenated using the ``+`` operator:
+
+::
+
+    var array1 = ["One", 2]
+    var array2 = [3, "Four"]
+    print(array1 + array2) # ["One", 2, 3, "Four"]
+
 Arrays are always passed by reference.
 
 Methods
 -------
 
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolColorArray<class_PoolColorArray>` from **)**                                                                                                              |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedColorArray<class_PackedColorArray>` from **)**                                                                                                          |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolVector3Array<class_PoolVector3Array>` from **)**                                                                                                          |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedVector3Array<class_PackedVector3Array>` from **)**                                                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolVector2Array<class_PoolVector2Array>` from **)**                                                                                                          |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedVector2Array<class_PackedVector2Array>` from **)**                                                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolStringArray<class_PoolStringArray>` from **)**                                                                                                            |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedStringArray<class_PackedStringArray>` from **)**                                                                                                        |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolRealArray<class_PoolRealArray>` from **)**                                                                                                                |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedFloat64Array<class_PackedFloat64Array>` from **)**                                                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolIntArray<class_PoolIntArray>` from **)**                                                                                                                  |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedFloat32Array<class_PackedFloat32Array>` from **)**                                                                                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PoolByteArray<class_PoolByteArray>` from **)**                                                                                                                |
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedInt64Array<class_PackedInt64Array>` from **)**                                                                                                          |
++-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedInt32Array<class_PackedInt32Array>` from **)**                                                                                                          |
++-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| :ref:`Array<class_Array>`     | :ref:`Array<class_Array_method_Array>` **(** :ref:`PackedByteArray<class_PackedByteArray>` from **)**                                                                                                            |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`append<class_Array_method_append>` **(** :ref:`Variant<class_Variant>` value **)**                                                                                                                         |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`Variant<class_Variant>` | :ref:`back<class_Array_method_back>` **(** **)**                                                                                                                                                                 |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`         | :ref:`bsearch<class_Array_method_bsearch>` **(** :ref:`Variant<class_Variant>` value, :ref:`bool<class_bool>` before=True **)**                                                                                  |
+| :ref:`int<class_int>`         | :ref:`bsearch<class_Array_method_bsearch>` **(** :ref:`Variant<class_Variant>` value, :ref:`bool<class_bool>` before=true **)**                                                                                  |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`int<class_int>`         | :ref:`bsearch_custom<class_Array_method_bsearch_custom>` **(** :ref:`Variant<class_Variant>` value, :ref:`Object<class_Object>` obj, :ref:`String<class_String>` func, :ref:`bool<class_bool>` before=True **)** |
+| :ref:`int<class_int>`         | :ref:`bsearch_custom<class_Array_method_bsearch_custom>` **(** :ref:`Variant<class_Variant>` value, :ref:`Object<class_Object>` obj, :ref:`String<class_String>` func, :ref:`bool<class_bool>` before=true **)** |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`clear<class_Array_method_clear>` **(** **)**                                                                                                                                                               |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`         | :ref:`count<class_Array_method_count>` **(** :ref:`Variant<class_Variant>` value **)**                                                                                                                           |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`duplicate<class_Array_method_duplicate>` **(** :ref:`bool<class_bool>` deep=False **)**                                                                                                                    |
+| :ref:`Array<class_Array>`     | :ref:`duplicate<class_Array_method_duplicate>` **(** :ref:`bool<class_bool>` deep=false **)**                                                                                                                    |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`bool<class_bool>`       | :ref:`empty<class_Array_method_empty>` **(** **)**                                                                                                                                                               |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -101,7 +113,7 @@ Methods
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | :ref:`int<class_int>`         | :ref:`size<class_Array_method_size>` **(** **)**                                                                                                                                                                 |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| :ref:`Array<class_Array>`     | :ref:`slice<class_Array_method_slice>` **(** :ref:`int<class_int>` begin, :ref:`int<class_int>` end, :ref:`int<class_int>` step=1, :ref:`bool<class_bool>` deep=False **)**                                      |
+| :ref:`Array<class_Array>`     | :ref:`slice<class_Array_method_slice>` **(** :ref:`int<class_int>` begin, :ref:`int<class_int>` end, :ref:`int<class_int>` step=1, :ref:`bool<class_bool>` deep=false **)**                                      |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | void                          | :ref:`sort<class_Array_method_sort>` **(** **)**                                                                                                                                                                 |
 +-------------------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -113,45 +125,57 @@ Method Descriptions
 
 .. _class_Array_method_Array:
 
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolColorArray<class_PoolColorArray>` from **)**
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedColorArray<class_PackedColorArray>` from **)**
 
-Constructs an array from a :ref:`PoolColorArray<class_PoolColorArray>`.
-
-----
-
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolVector3Array<class_PoolVector3Array>` from **)**
-
-Constructs an array from a :ref:`PoolVector3Array<class_PoolVector3Array>`.
+Constructs an array from a :ref:`PackedColorArray<class_PackedColorArray>`.
 
 ----
 
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolVector2Array<class_PoolVector2Array>` from **)**
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedVector3Array<class_PackedVector3Array>` from **)**
 
-Constructs an array from a :ref:`PoolVector2Array<class_PoolVector2Array>`.
-
-----
-
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolStringArray<class_PoolStringArray>` from **)**
-
-Constructs an array from a :ref:`PoolStringArray<class_PoolStringArray>`.
+Constructs an array from a :ref:`PackedVector3Array<class_PackedVector3Array>`.
 
 ----
 
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolRealArray<class_PoolRealArray>` from **)**
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedVector2Array<class_PackedVector2Array>` from **)**
 
-Constructs an array from a :ref:`PoolRealArray<class_PoolRealArray>`.
-
-----
-
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolIntArray<class_PoolIntArray>` from **)**
-
-Constructs an array from a :ref:`PoolIntArray<class_PoolIntArray>`.
+Constructs an array from a :ref:`PackedVector2Array<class_PackedVector2Array>`.
 
 ----
 
-- :ref:`Array<class_Array>` **Array** **(** :ref:`PoolByteArray<class_PoolByteArray>` from **)**
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedStringArray<class_PackedStringArray>` from **)**
 
-Constructs an array from a :ref:`PoolByteArray<class_PoolByteArray>`.
+Constructs an array from a :ref:`PackedStringArray<class_PackedStringArray>`.
+
+----
+
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedFloat64Array<class_PackedFloat64Array>` from **)**
+
+Constructs an array from a :ref:`PackedFloat64Array<class_PackedFloat64Array>`.
+
+----
+
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedFloat32Array<class_PackedFloat32Array>` from **)**
+
+Constructs an array from a :ref:`PackedFloat32Array<class_PackedFloat32Array>`.
+
+----
+
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedInt64Array<class_PackedInt64Array>` from **)**
+
+Constructs an array from a :ref:`PackedInt64Array<class_PackedInt64Array>`.
+
+----
+
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedInt32Array<class_PackedInt32Array>` from **)**
+
+Constructs an array from a :ref:`PackedInt32Array<class_PackedInt32Array>`.
+
+----
+
+- :ref:`Array<class_Array>` **Array** **(** :ref:`PackedByteArray<class_PackedByteArray>` from **)**
+
+Constructs an array from a :ref:`PackedByteArray<class_PackedByteArray>`.
 
 ----
 
@@ -173,7 +197,7 @@ Returns the last element of the array, or ``null`` if the array is empty.
 
 .. _class_Array_method_bsearch:
 
-- :ref:`int<class_int>` **bsearch** **(** :ref:`Variant<class_Variant>` value, :ref:`bool<class_bool>` before=True **)**
+- :ref:`int<class_int>` **bsearch** **(** :ref:`Variant<class_Variant>` value, :ref:`bool<class_bool>` before=true **)**
 
 Finds the index of an existing value (or the insertion index that maintains sorting order, if the value is not yet present in the array) using binary search. Optionally, a ``before`` specifier can be passed. If ``false``, the returned index comes after all existing entries of the value in the array.
 
@@ -183,7 +207,7 @@ Finds the index of an existing value (or the insertion index that maintains sort
 
 .. _class_Array_method_bsearch_custom:
 
-- :ref:`int<class_int>` **bsearch_custom** **(** :ref:`Variant<class_Variant>` value, :ref:`Object<class_Object>` obj, :ref:`String<class_String>` func, :ref:`bool<class_bool>` before=True **)**
+- :ref:`int<class_int>` **bsearch_custom** **(** :ref:`Variant<class_Variant>` value, :ref:`Object<class_Object>` obj, :ref:`String<class_String>` func, :ref:`bool<class_bool>` before=true **)**
 
 Finds the index of an existing value (or the insertion index that maintains sorting order, if the value is not yet present in the array) using binary search and a custom comparison method. Optionally, a ``before`` specifier can be passed. If ``false``, the returned index comes after all existing entries of the value in the array. The custom method receives two arguments (an element from the array and the value searched for) and must return ``true`` if the first argument is less than the second, and return ``false`` otherwise.
 
@@ -209,7 +233,7 @@ Returns the number of times an element is in the array.
 
 .. _class_Array_method_duplicate:
 
-- :ref:`Array<class_Array>` **duplicate** **(** :ref:`bool<class_bool>` deep=False **)**
+- :ref:`Array<class_Array>` **duplicate** **(** :ref:`bool<class_bool>` deep=false **)**
 
 Returns a copy of the array.
 
@@ -386,7 +410,7 @@ Returns the number of elements in the array.
 
 .. _class_Array_method_slice:
 
-- :ref:`Array<class_Array>` **slice** **(** :ref:`int<class_int>` begin, :ref:`int<class_int>` end, :ref:`int<class_int>` step=1, :ref:`bool<class_bool>` deep=False **)**
+- :ref:`Array<class_Array>` **slice** **(** :ref:`int<class_int>` begin, :ref:`int<class_int>` end, :ref:`int<class_int>` step=1, :ref:`bool<class_bool>` deep=false **)**
 
 Duplicates the subset described in the function and returns it in an array, deeply copying the array if ``deep`` is ``true``. Lower and upper index are inclusive, with the ``step`` describing the change between indices while slicing.
 
@@ -398,7 +422,13 @@ Duplicates the subset described in the function and returns it in an array, deep
 
 Sorts the array.
 
-**Note:** strings are sorted in alphabetical, not natural order.
+**Note:** Strings are sorted in alphabetical order (as opposed to natural order). This may lead to unexpected behavior when sorting an array of strings ending with a sequence of numbers. Consider the following example:
+
+::
+
+    var strings = ["string1", "string2", "string10", "string11"]
+    strings.sort()
+    print(strings) # Prints [string1, string10, string11, string2]
 
 ----
 

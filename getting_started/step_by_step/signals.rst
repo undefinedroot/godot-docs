@@ -1,3 +1,6 @@
+.. meta::
+    :keywords: Signal
+
 .. _doc_signals:
 
 Signals
@@ -11,7 +14,7 @@ send out a message that other nodes can listen for and respond to. For example,
 rather than continuously checking a button to see if it's being pressed, the
 button can emit a signal when it's pressed.
 
-.. note:: You can read more about the observer pattern here: http://gameprogrammingpatterns.com/observer.html
+.. note:: You can read more about the observer pattern here: https://gameprogrammingpatterns.com/observer.html
 
 Signals are a way to *decouple* your game objects, which leads to better organized
 and more manageable code. Instead of forcing game objects to expect other objects
@@ -60,6 +63,10 @@ node.
 .. warning:: The target node *must* have a script attached or you'll receive
              an error message.
 
+If you toggle the Advanced menu, you'll see on the right side that you can bind an arbitrary number of arguments of (possibly) different
+types. This can be useful when you have more than one signal connected to the same method,
+as each signal propagation will result in different values for those extra call arguments.
+
 On the bottom of the window is a field labeled "Receiver Method". This is the name
 of the function in the target node's script that you want to use. By default,
 Godot will create this function using the naming convention ``_on_<node_name>_<signal_name>``
@@ -72,14 +79,15 @@ Click "Connect" and you'll see that the function has been created in the script:
 
     extends Node2D
 
+
     func _on_Timer_timeout():
-        pass # replace with function body
+        pass # Replace with function body.
 
  .. code-tab:: csharp
 
     public class TimerExample : Node2D
     {
-        private void _on_Timer_timeout()
+        public void _on_Timer_timeout()
         {
             // Replace with function body.
         }
@@ -92,6 +100,7 @@ the signal is received. Let's make the Sprite blink:
  .. code-tab:: gdscript GDScript
 
     extends Node2D
+
 
     func _on_Timer_timeout():
         # Note: the `$` operator is a shorthand for `get_node()`,
@@ -134,8 +143,10 @@ Here is the code for our Timer connection:
 
     extends Node2D
 
+
     func _ready():
         $Timer.connect("timeout", self, "_on_Timer_timeout")
+
 
     func _on_Timer_timeout():
         $Sprite.visible = !$Sprite.visible
@@ -167,6 +178,7 @@ You can also declare your own custom signals in Godot:
 
     extends Node2D
 
+
     signal my_signal
 
  .. code-tab:: csharp
@@ -187,7 +199,9 @@ To emit a signal via code, use the ``emit_signal`` function:
 
     extends Node2D
 
+
     signal my_signal
+
 
     func _ready():
         emit_signal("my_signal")
@@ -202,6 +216,59 @@ To emit a signal via code, use the ``emit_signal`` function:
         public override void _Ready()
         {
             EmitSignal(nameof(MySignal));
+        }
+    }
+
+A signal can also optionally declare one or more arguments. Specify the
+argument names between parentheses:
+
+.. tabs::
+ .. code-tab:: gdscript GDScript
+
+    extends Node
+
+
+    signal my_signal(value, other_value)
+
+ .. code-tab:: csharp
+
+    public class Main : Node
+    {
+        [Signal]
+        public delegate void MySignal(bool value, int other_value);
+    }
+
+.. note::
+
+    The signal arguments show up in the editor's node dock, and Godot
+    can use them to generate callback functions for you. However, you can still
+    emit any number of arguments when you emit signals. So it's up to you to
+    emit the correct values.
+
+To pass values, add them as the second argument to the ``emit_signal`` function:
+
+.. tabs::
+ .. code-tab:: gdscript GDScript
+
+    extends Node
+
+
+    signal my_signal(value, other_value)
+
+
+    func _ready():
+        emit_signal("my_signal", true, 42)
+
+ .. code-tab:: csharp
+
+    public class Main : Node
+    {
+        [Signal]
+        public delegate void MySignal(bool value, int other_value);
+
+        public override void _Ready()
+        {
+            EmitSignal(nameof(MySignal), true, 42);
         }
     }
 

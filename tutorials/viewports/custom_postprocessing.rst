@@ -56,23 +56,23 @@ shader resource to it. You can access your rendered ``Viewport`` with the built-
     need to create your own uniform in the shader and pass the ``Viewport`` texture in
     manually, like so:
 
-    ::
+    .. code-block:: glsl
 
-      // Inside the Shader
+      // Inside the Shader.
       uniform sampler2D ViewportTexture;
 
     And you can pass the texture into the shader from GDScript like so:
 
     ::
 
-      # In GDScript
+      # In GDScript.
       func _ready():
         $Sprite.material.set_shader_param("ViewportTexture", $Viewport.get_texture())
 
 Copy the following code to your shader. The above code is a single pass edge detection filter, a
 `Sobel filter <https://en.wikipedia.org/wiki/Sobel_operator>`_.
 
-::
+.. code-block:: glsl
 
   shader_type canvas_item;
 
@@ -129,11 +129,11 @@ As an example, you could write a full screen Gaussian blur effect by attaching t
 to each of the :ref:`ViewportContainers <class_ViewportContainer>`. The order in which you apply the shaders
 does not matter:
 
-::
+.. code-block:: glsl
 
   shader_type canvas_item;
 
-  //Blurs the screen in the X-direction.
+  // Blurs the screen in the X-direction.
   void fragment() {
       vec3 col = texture(TEXTURE, SCREEN_UV).xyz * 0.16;
       col += texture(TEXTURE, SCREEN_UV + vec2(SCREEN_PIXEL_SIZE.x, 0.0)).xyz * 0.15;
@@ -147,11 +147,11 @@ does not matter:
       COLOR.xyz = col;
   }
 
-::
+.. code-block:: glsl
 
   shader_type canvas_item;
 
-  //Blurs the screen in the Y-direction.
+  // Blurs the screen in the Y-direction.
   void fragment() {
       vec3 col = texture(TEXTURE, SCREEN_UV).xyz * 0.16;
       col += texture(TEXTURE, SCREEN_UV + vec2(0.0, SCREEN_PIXEL_SIZE.y)).xyz * 0.15;
